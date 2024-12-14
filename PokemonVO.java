@@ -22,11 +22,22 @@ public class PokemonVO {
         return hp;
     }
 
+    public void setHp(int hp) {
+        this.hp = hp;
+    }
+
     public int getDanoBase() {
         return danoBase;
     }
 
     public int getDefesaBase() {
         return defesaBase;
+    }
+
+    public void atacar(PokemonVO alvo) {
+        int dano = this.danoBase - alvo.getDefesaBase();
+        if (dano > 0) {
+            alvo.setHp(alvo.getHp() - dano);
+        }
     }
 }
